@@ -18,10 +18,11 @@
 .nav__item {
     list-style-type: none;
     font-size: 14px;
-    color: #fff;
+    color: rgba(255, 255, 255, 0.7);
     padding: 23px;
     cursor: pointer;
 }
 .selected {
+    color: #fff;
     background-color: #1e88e5;
 }
