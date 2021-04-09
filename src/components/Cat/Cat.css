@@ -3,6 +3,8 @@
     height: 225px;
     margin-top: 52px;
     position: relative;
+    display: flex;
+    justify-content: center;
 }
 .cats__img {
     max-width: 100%;

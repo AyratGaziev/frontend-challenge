@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import Cat from "../Cat/Cat";
 import "./AllCats.css";
 import axios from "axios";
 
-const AllCats = ({ setLikedCats }) => {
-    const [cats, setCats] = useState([]);
-    const [page, setPage] = useState(0);
+const AllCats = ({ cats, setCats, page, setPage }) => {
+    const prevPage = useRef(page);
 
     useEffect(() => {
+        if (prevPage.current === page && cats.length !== 0) return;
         axios
             .get(
-                `https://api.thecatapi.com/v1/images/search?size=med&limit=20&page=${page}`,
+                `https://api.thecatapi.com/v1/images/search?size=med&limit=5&page=${page}`,
                 {
                     headers: {
                         "x-api-key": "16a45f53-5444-4cc2-9a01-5b27f1204950"
@@ -22,13 +22,14 @@ const AllCats = ({ setLikedCats }) => {
                     const resCats = response.data.map(({ id, url }) => {
                         return {
                             id,
-                            url
+                            url,
+                            liked: false
                         };
                     });
                     return [...cats, ...resCats];
                 })
             );
-    }, [page]);
+    }, [page, setCats]);
 
     let catsImgs;
     function nextPage() {
@@ -39,11 +40,11 @@ const AllCats = ({ setLikedCats }) => {
         catsImgs = cats.map((cat) => {
             return (
                 <Cat
-                    setLikedCats={setLikedCats}
+                    setCats={setCats}
                     key={cat.id}
                     id={cat.id}
-                    catId={cat.id}
                     url={cat.url}
+                    liked={cat.liked}
                 />
             );
         });

@@ -3,16 +3,31 @@ import "./App.css";
 import AllCats from "./components/AllCats/AllCats";
 import Header from "./components/Header/Header";
 import LikedCats from "./components/LikedCats/LikedCats.jsx";
+import { BrowserRouter, Route } from "react-router-dom";
 
 function App() {
-    const [likedCats, setLikedCats] = useState([]);
+    const [cats, setCats] = useState([]);
+    const [page, setPage] = useState(0);
+
+    const likedCats = cats.filter((cat) => cat.liked);
 
     console.log(likedCats);
     return (
         <div className="App">
-            <Header />
-            <AllCats setLikedCats={setLikedCats} />
-            <LikedCats likedCats={likedCats} />
+            <BrowserRouter>
+                <Header />
+                <Route exact path="/">
+                    <AllCats
+                        page={page}
+                        setPage={setPage}
+                        cats={cats}
+                        setCats={setCats}
+                    />
+                </Route>
+                <Route exact path="/liked-cats">
+                    <LikedCats setCats={setCats} likedCats={likedCats} />
+                </Route>
+            </BrowserRouter>
         </div>
     );
 }

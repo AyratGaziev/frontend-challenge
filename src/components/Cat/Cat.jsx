@@ -1,20 +1,23 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Cat.css";
 
-const Cat = ({ setLikedCats, id, url }) => {
-    const [liked, setLiked] = useState(false);
-
+const Cat = ({ setCats, id, url, liked }) => {
     function onLikeCatClick() {
         if (!liked) {
-            setLikedCats((cats) => {
-                return [...cats, { id, url }];
+            setCats((cats) => {
+                const idx = cats.findIndex((cat) => cat.id === id);
+                const newCats = cats.slice();
+                newCats[idx] = { ...newCats[idx], liked: true };
+                return newCats;
             });
         } else {
-            setLikedCats((cats) => {
-                return cats.filter((cat) => cat.id !== id);
+            setCats((cats) => {
+                const idx = cats.findIndex((cat) => cat.id === id);
+                const newCats = cats.slice();
+                newCats[idx] = { ...newCats[idx], liked: false };
+                return newCats;
             });
         }
-        setLiked((state) => !state);
     }
 
     return (

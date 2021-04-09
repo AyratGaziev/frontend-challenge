@@ -17,12 +17,16 @@
 }
 .nav__item {
     list-style-type: none;
+}
+.nav__item a {
+    display: block;
+    text-decoration: none;
     font-size: 14px;
     color: rgba(255, 255, 255, 0.7);
     padding: 23px;
     cursor: pointer;
 }
-.selected {
+.selected a {
     color: #fff;
     background-color: #1e88e5;
 }
