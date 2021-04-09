@@ -1,9 +1,13 @@
+import React from "react";
 import "./App.css";
+import AllCats from "./components/AllCats/AllCats";
+import Header from "./components/Header/Header";
 
 function App() {
     return (
         <div className="App">
-            <h2>Hello</h2>
+            <Header />
+            <AllCats />
         </div>
     );
 }
