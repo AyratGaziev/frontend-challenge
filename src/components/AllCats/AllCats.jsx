@@ -45,7 +45,7 @@ const AllCats = ({ cats, setCats, page, setPage }) => {
             if (loading) return;
 
             if (
-                scrollPage.scrollHeight - scrollPage.scrollTop ===
+                scrollPage.scrollHeight - scrollPage.scrollTop - 60 <=
                 scrollPage.clientHeight
             ) {
                 setPage(++page);

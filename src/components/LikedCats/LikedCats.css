@@ -6,6 +6,19 @@
     grid-template-columns: 225px 225px 225px 225px 225px;
     padding-bottom: 52px;
 }
+.no-cats {
+    margin-top: 80px;
+}
+.no-cats__img {
+    display: block;
+    width: 128px;
+    margin: 0 auto;
+}
+.no-cats__title {
+    color: #999999;
+    text-align: center;
+    margin-top: 10px;
+}
 @media (max-width: 1400px) {
     .liked-cats__container {
         max-width: 1250px;

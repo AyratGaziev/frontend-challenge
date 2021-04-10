@@ -32,8 +32,15 @@ const Cat = ({ setCats, id, url, liked }) => {
     }
 
     const catImg = (
-        <div className="cats__img-wrap">
-            <img className="cats__img" src={url} alt="cat" />
+        <div
+            style={{ backgroundImage: "url(" + url + ")" }}
+            className="cats__img-wrap">
+            {/* В начале грзузил картинки в тег img, но так как картинки с шириной
+            меньше высоты не отображались корректно в контейнере 225px на 225px пришлось
+            переделать через backgroundImage */}
+
+            {/* <img className="cats__img" src={url} alt="cat" /> */}
+
             <div
                 onClick={onLikeCatClick}
                 className={liked ? "cats__heart liked" : "cats__heart"}></div>
