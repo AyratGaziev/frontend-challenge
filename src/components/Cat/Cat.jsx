@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Cat.css";
 
 const Cat = ({ setCats, id, url, liked }) => {
+    const [imgLoading, setImgLoading] = useState(true);
+
+    useEffect(() => {
+        const img = new Image();
+        img.src = url;
+        img.addEventListener("load", () => setImgLoading(false));
+        return () => {
+            img.removeEventListener("load", () => setImgLoading(false));
+        };
+    }, [url]);
+
     function onLikeCatClick() {
         if (!liked) {
             setCats((cats) => {
@@ -20,7 +31,7 @@ const Cat = ({ setCats, id, url, liked }) => {
         }
     }
 
-    return (
+    const catImg = (
         <div className="cats__img-wrap">
             <img className="cats__img" src={url} alt="cat" />
             <div
@@ -29,6 +40,13 @@ const Cat = ({ setCats, id, url, liked }) => {
             <div className="cats__gradient"></div>
         </div>
     );
+    const placeholder = (
+        <div className="cats__placeholder">
+            <div className="cats__placeholder-effect"></div>
+        </div>
+    );
+
+    return imgLoading ? placeholder : catImg;
 };
 
 export default Cat;

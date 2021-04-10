@@ -1,0 +1,42 @@
+.loader {
+    display: flex;
+    width: 160px;
+    margin: 150px auto;
+}
+.loader__1,
+.loader__2,
+.loader__3,
+.loader__4 {
+    background-image: url(./cat.png);
+    width: 35px;
+    height: 35px;
+    background-size: 35px 35px;
+}
+
+.loader__1 {
+    animation: cats_animate 1s linear 0s infinite;
+}
+.loader__2 {
+    animation: cats_animate 1s linear 200ms infinite;
+}
+.loader__3 {
+    animation: cats_animate 1s linear 400ms infinite;
+}
+.loader__4 {
+    animation: cats_animate 1s linear 600ms infinite;
+}
+
+@keyframes cats_animate {
+    0% {
+        transform: translateY(0);
+    }
+    25% {
+        transform: translateY(-5px);
+    }
+    75% {
+        transform: translateY(20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}

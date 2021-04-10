@@ -17,7 +17,7 @@ const LikedCats = ({ likedCats, setCats }) => {
             );
         });
     }
-    return <div className="cats__container">{cats}</div>;
+    return <div className="liked-cats__container">{cats}</div>;
 };
 
 export default LikedCats;

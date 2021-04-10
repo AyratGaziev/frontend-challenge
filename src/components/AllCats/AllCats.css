@@ -1,12 +1,15 @@
 .cats__container {
     max-width: 1316px;
     margin: 0 auto;
-    display: flex;
+    display: grid;
+    grid-template-columns: 225px 225px 225px 225px 225px;
     justify-content: space-between;
-    flex-wrap: wrap;
     padding-bottom: 52px;
 }
-.cats__more {
+/* Стили для кнопки "Загрузить еще"
+   За образец взял кнопку со страницы material mocks в Фигме */
+
+/* .cats__more {
     display: block;
     margin: 10px auto;
     width: 190px;
@@ -26,4 +29,4 @@
 }
 .cats__more:focus {
     outline: none;
-}
+} */

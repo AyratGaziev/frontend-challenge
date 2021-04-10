@@ -53,3 +53,28 @@
 .cats__img-wrap:hover .cats__gradient {
     display: block;
 }
+.cats__placeholder {
+    position: relative;
+    margin-top: 52px;
+    width: 225px;
+    height: 225px;
+    background: rgba(173, 173, 173, 0.582);
+    overflow: hidden;
+}
+.cats__placeholder-effect {
+    position: absolute;
+    left: -50px;
+    top: 0;
+    height: 100%;
+    width: 50px;
+    background: linear-gradient(90deg, #ffffff21, #ffffffa9, #ffffff21);
+    animation: placeholder-animation 1.5s linear infinite;
+}
+@keyframes placeholder-animation {
+    from {
+        transform: translateX(-50);
+    }
+    to {
+        transform: translateX(350px);
+    }
+}

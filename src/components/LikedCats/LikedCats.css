@@ -1,8 +1,8 @@
-.cats__container {
+.liked-cats__container {
     max-width: 1316px;
     margin: 0 auto;
-    display: flex;
+    display: grid;
     justify-content: space-between;
-    flex-wrap: wrap;
+    grid-template-columns: 225px 225px 225px 225px 225px;
     padding-bottom: 52px;
 }

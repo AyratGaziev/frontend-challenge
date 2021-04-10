@@ -11,7 +11,6 @@ function App() {
 
     const likedCats = cats.filter((cat) => cat.liked);
 
-    console.log(likedCats);
     return (
         <div className="App">
             <BrowserRouter>
