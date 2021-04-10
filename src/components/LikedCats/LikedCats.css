@@ -6,3 +6,48 @@
     grid-template-columns: 225px 225px 225px 225px 225px;
     padding-bottom: 52px;
 }
+@media (max-width: 1400px) {
+    .liked-cats__container {
+        max-width: 1250px;
+        grid-template-columns: 225px 225px 225px 225px;
+    }
+}
+@media (max-width: 1300px) {
+    .liked-cats__container {
+        max-width: 1000px;
+    }
+}
+@media (max-width: 1050px) {
+    .liked-cats__container {
+        max-width: 900px;
+        grid-template-columns: 225px 225px 225px;
+    }
+}
+@media (max-width: 950px) {
+    .liked-cats__container {
+        max-width: 750px;
+    }
+}
+@media (max-width: 780px) {
+    .liked-cats__container {
+        max-width: 600px;
+        grid-template-columns: 225px 225px;
+    }
+}
+@media (max-width: 670px) {
+    .liked-cats__container {
+        max-width: 500px;
+    }
+}
+@media (max-width: 550px) {
+    .liked-cats__container {
+        max-width: 460px;
+    }
+}
+@media (max-width: 480px) {
+    .liked-cats__container {
+        max-width: 320px;
+        justify-content: center;
+        grid-template-columns: 225px;
+    }
+}

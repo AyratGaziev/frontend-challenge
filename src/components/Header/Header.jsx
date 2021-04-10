@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import "./Header.css";
+import MobileMenu from "../MobileMenu/MobileMenu.jsx";
+import DesktopMenu from "../DesktopMenu/DesktopMenu.jsx";
 
 const Header = () => {
     const [selected, setSelected] = useState("all");
@@ -10,22 +11,10 @@ const Header = () => {
     }
 
     return (
-        <header className="header">
-            <div className="container">
-                <ul className="nav">
-                    <li
-                        onClick={() => setSelected("all")}
-                        className={linkClass("all")}>
-                        <Link to="/">Все котики</Link>
-                    </li>
-                    <li
-                        onClick={() => setSelected("liked")}
-                        className={linkClass("liked")}>
-                        <Link to="/liked-cats">Любимые котики</Link>
-                    </li>
-                </ul>
-            </div>
-        </header>
+        <>
+            <MobileMenu setSelected={setSelected} linkClass={linkClass} />
+            <DesktopMenu setSelected={setSelected} linkClass={linkClass} />
+        </>
     );
 };
 

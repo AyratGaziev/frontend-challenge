@@ -11,7 +11,9 @@ const AllCats = ({ cats, setCats, page, setPage }) => {
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        if (prevPage.current === page && cats.length !== 0 && !loading) return;
+        if ((prevPage.current === page && cats.length !== 0) || loading) return;
+
+        setLoading(true);
         axios
             .get(
                 `https://api.thecatapi.com/v1/images/search?size=med&limit=${catsCount}&page=${page}`,
@@ -34,18 +36,19 @@ const AllCats = ({ cats, setCats, page, setPage }) => {
                     return [...cats, ...resCats];
                 });
             });
-    }, [page, setCats, loading]);
+    }, [page]);
 
     useEffect(() => {
         function scrollHandler(e) {
             const scrollPage = e.target.documentElement;
 
+            if (loading) return;
+
             if (
                 scrollPage.scrollHeight - scrollPage.scrollTop ===
                 scrollPage.clientHeight
             ) {
-                setLoading(true);
-                setPage(page + 1);
+                setPage(++page);
             }
         }
 
@@ -53,12 +56,9 @@ const AllCats = ({ cats, setCats, page, setPage }) => {
         return () => {
             document.removeEventListener("scroll", scrollHandler);
         };
-    }, []);
+    }, [loading, page, setPage]);
 
     let catsImgs;
-    // function nextPage() {
-    //     setPage(page + 1);
-    // }
 
     if (cats.length > 0) {
         catsImgs = cats.map((cat) => {
@@ -73,6 +73,10 @@ const AllCats = ({ cats, setCats, page, setPage }) => {
             );
         });
     }
+
+    // function nextPage() {
+    //     setPage(page + 1);
+    // }
 
     return (
         <div className="cats">
