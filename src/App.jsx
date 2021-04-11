@@ -3,7 +3,7 @@ import "./App.css";
 import AllCats from "./components/AllCats/AllCats";
 import Header from "./components/Header/Header";
 import LikedCats from "./components/LikedCats/LikedCats.jsx";
-import { BrowserRouter, Route } from "react-router-dom";
+import { HashRouter, Route } from "react-router-dom";
 
 function App() {
     const [cats, setCats] = useState([]);
@@ -13,7 +13,7 @@ function App() {
 
     return (
         <div className="App">
-            <BrowserRouter>
+            <HashRouter>
                 <Header />
                 <Route exact path="/">
                     <AllCats
@@ -26,7 +26,7 @@ function App() {
                 <Route exact path="/liked-cats">
                     <LikedCats setCats={setCats} likedCats={likedCats} />
                 </Route>
-            </BrowserRouter>
+            </HashRouter>
         </div>
     );
 }

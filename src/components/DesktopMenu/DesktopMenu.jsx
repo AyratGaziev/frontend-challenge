@@ -8,13 +8,13 @@ const DesktopMenu = ({ setSelected, linkClass }) => {
             <div className="container">
                 <ul className="nav">
                     <li
-                        onClick={() => setSelected("all")}
-                        className={linkClass("all")}>
+                        onClick={() => setSelected("/")}
+                        className={linkClass("/")}>
                         <Link to="/">Все котики</Link>
                     </li>
                     <li
-                        onClick={() => setSelected("liked")}
-                        className={linkClass("liked")}>
+                        onClick={() => setSelected("/liked-cats")}
+                        className={linkClass("/liked-cats")}>
                         <Link to="/liked-cats">Любимые котики</Link>
                     </li>
                 </ul>

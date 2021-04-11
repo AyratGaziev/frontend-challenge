@@ -27,17 +27,17 @@ const MobileMenu = ({ setSelected, linkClass }) => {
                     <li
                         onClick={() => {
                             setActive((active) => !active);
-                            setSelected("all");
+                            setSelected("/");
                         }}
-                        className={linkClass("all")}>
+                        className={linkClass("/")}>
                         <Link to="/">Все котики</Link>
                     </li>
                     <li
                         onClick={() => {
                             setActive((active) => !active);
-                            setSelected("liked");
+                            setSelected("/liked-cats");
                         }}
-                        className={linkClass("liked")}>
+                        className={linkClass("/liked-cats")}>
                         <Link to="/liked-cats">Любимые котики</Link>
                     </li>
                 </ul>
